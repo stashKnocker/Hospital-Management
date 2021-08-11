@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <table class="table table-bordered">
+      <h2>Personal details</h2>
+      <thead>
+        <tr>
+          <th scope="col">Fullname</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Gender</th>
+          <th scope="col">DOB</th>
+          <th scope="col">Age</th>
+          <th scope="col">Aadhar Number</th>
+          <th scope="col">Marital Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Fullname }}</td>
+          <td>{{ object.Email_Address }}</td>
+          <td>{{ object.Gender }}</td>
+          <td>{{ object.Date_of_birth }}</td>
+          <td>{{ object.Age }}</td>
+          <td>{{ object.Aadhar_number }}</td>
+          <td>{{ object.Marital_status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Father Name</th>
+          <th scope="col">Father Job</th>
+          <th scope="col">Father Number</th>
+          <th scope="col">Mother Name</th>
+          <th scope="col">Mother Job</th>
+          <th scope="col">Guardian Name</th>
+          <th scope="col">Ph Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Father_name }}</td>
+          <td>{{ object.Father_occupation }}</td>
+          <td>{{ object.Father_number }}</td>
+          <td>{{ object.Mother_name }}</td>
+          <td>{{ object.Mother_occupation }}</td>
+          <td>{{ object.Guardian_name }}</td>
+          <td>{{ object.Mobile_number }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Guardian Job</th>
+          <th scope="col">Address 1</th>
+          <th scope="col">Address 2</th>
+          <th scope="col">City</th>
+          <th scope="col">District</th>
+          <th scope="col">Zipcode</th>
+          <th scope="col">Income/yr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Guardian_occupation }}</td>
+          <td>{{ object.Address_1 }}</td>
+          <td>{{ object.Address_2 }}</td>
+          <td>{{ object.City }}</td>
+          <td>{{ object.District }}</td>
+          <td>{{ object.zipcode }}</td>
+          <td>{{ object.Annual_income }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Caste</th>
+          <th scope="col">community</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Caste }}</td>
+          <td>{{ object.Community }}</td>
+        </tr>
+      </tbody>    
+    </table>
+
+    <table class="table table-bordered">
+      <h2>SOCIOECONOMIC HISTORY</h2>
+      <thead>
+        <tr>
+          <th scope="col">Family History</th>
+          <th scope="col">Dietary Habit</th>
+          <th scope="col">Inter-Personal Relationship</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Family_History }}</td>
+          <td>{{ object.Dietary_Habits }}</td>
+          <td>{{ object.Inter_Personal_relationship }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <thead>
+      <tr>
+        <th scope="col">Health status of family members</th>
+        <th scope="col">Housing Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">{{ object.Health_status_of_family_members }}</td>
+        <td>{{ object.Housing_Condition }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <thead>
+    <tr>
+      <th scope="col">History of present illness</th>
+      <th scope="col">History of past illness</th>
+      <th scope="col">History of Allergy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">{{ object.History_of_present_illness }}</td>
+      <td>{{ object.History_of_past_illness }}</td>
+      <td>{{ object.History_of_Allergy }}</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <table class="table table-bordered">
+      <h2>VITAL STATUS</h2>
+      <thead>
+        <tr>
+          <th scope="col">Blood Sugar</th>
+          <th scope="col">Blood Pressure</th>
+          <th scope="col">Body Temperature</th>
+          <th scope="col">Pulse Rate</th>
+          <th scope="col">Respiration Rate</th>
+          <th scope="col">blood Group</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Height</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Blood_Sugar }}</td>
+          <td>{{ object.Blood_Pressure }}</td>
+          <td>{{ object.Body_Temperature }}</td>
+          <td>{{ object.Pulse_rate }}</td>
+          <td>{{ object.Respiration_rate }}</td>
+          <td>{{ object.blood_group }}</td>
+          <td>{{ object.Weight }}</td>
+          <td>{{ object.Height }}</td>
+
+        </tr>
+      </tbody>
+      
+    </table>
+    <br/>
+    <table class="table table-bordered">
+      <h2>Other details</h2>
+      <thead>
+        <tr>
+          <th scope="col">Case Detail</th>
+          <th scope="col">Medical Insurance</th>
+          <th scope="col">Created at</th>
+          <th scope="col">Updated at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">{{ object.Case_in_detail }}</td>
+          <td>{{ object.Medical_Insurance }}</td>
+          <td>{{ object.created_at }}</td>
+          <td>{{ object.updated_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br/>
+  
+
+
+    <p><a href="{% url 'profile_edit' object.pk %}">Edit</a> |
+      <a href="{% url 'profile_delete' object.pk %}">Delete</a></p>
+      <p>Back to <a href="{% url 'profile_list' %}">All Surveys</a>.</p>
+  </div>
+{% endblock content %}

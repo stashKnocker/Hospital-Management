@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Prescriptions{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  {% if user.is_patient %}
+    <h1>Your Prescription's.</h1>
+    <hr/>
+
+    {% for prescription in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight">Prescription listed</span> &middot;
+        <span class="text-muted">by {{ prescription.doctor }}</span>
+      </div>
+      <div class="card-body">
+        <h5><strong>{{ prescription.date }}</strong></h5>
+        <hr />
+        <ul>
+            <p>Patient Name - {{ prescription.patient }}</p>
+            <p>Case - {{ prescription.case }}</p>
+            <p>Prescription - {{ prescription.prescription }}</p>
+            <a download href="{{ prescription.prescription_pdf.url }}" class="btn btn-success float-left">Download</a>
+        </ul>
+      </div>
+      <div class="card-footer text-center text-muted">
+        <a href="{% url 'prescription_detail' prescription.pk %}">View</a>
+      </div>
+    </div>
+    <br />
+    {% empty %}
+    <h6>There are no prescription yet.</h6>
+    {% endfor %}
+  {% endif %}
+
+
+  {% if user.is_doctor %}
+    <h1>Your Prescription's.</h1>
+    <hr/>
+    <button type="button" class="btn btn-success btn-lg btn-block"><a href="{% url 'prescription_create' %}" style="text-decoration: none; color: #fff;">+ New Prescription</a></button>
+    <br />
+    {% for prescription in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight">Prescription listed</span> &middot;
+        <span class="text-muted">by {{ prescription.doctor }}</span>
+      </div>
+      <div class="card-body">
+        <h5><strong>{{ prescription.date }}</strong></h5>
+        <hr />
+        <ul>
+            <p>Patient Name - {{ prescription.Fullname }}</p>
+            <p>Case - {{ prescription.case }}</p>
+            <p>Prescription - {{ prescription.prescription }}</p>
+        </ul>
+      </div>
+      <div class="card-footer text-center text-muted">
+        <a href="{% url 'prescription_detail' prescription.pk %}">View</a> | <a
+          href="{% url 'prescription_edit' prescription.pk %}">Edit</a> | <a
+          href="{% url 'prescription_delete' prescription.pk %}">Delete</a>
+      </div>
+    </div>
+    <br />
+    {% empty %}
+    <h6>There are no prescription yet.</h6>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock content %}

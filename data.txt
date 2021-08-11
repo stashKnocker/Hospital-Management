@@ -1,0 +1,67 @@
+DEMOGRAPHIC DATA:-
+Name:
+Age:
+Gender:
+Ward:
+Address:
+Education:
+Occupation:
+Marital Status:
+Religion:
+Date of Admission:
+Name of the Surgery:
+Type of Anesthesia:
+Allergic to:
+Date of Discharge:
+
+BRIEF SOCIOECONOMIC HISTORY:-
+Family History:
+Health Status Of Family Members:
+Total Income:
+Dietary Habits:
+Housing Condition:
+Inter Personal relationship:
+
+PERSONAL HISTORY:-
+Personal hygiene:
+history of Allergy:
+history of past illness:
+history of present illness:
+
+VITAL STATUS:-
+temp:
+Pulse:
+resp:
+B.P:
+
+GENERAL EXAMINATION:-
+Height:
+Weight:
+Hair colour:
+skin Moisture:
+skin Vascularity:
+Thyroid Gland:
+Heart Rate:
+Visual Acuity:
+Hearing Acuity:
+Rhythm of  breathing:
+Muscle Tone and Strength:
+
+ASSESSMENT:-
+
+
+CASE IN DETAIL:
+
+
+
+DOCTOR'S ORDER:
+attached pic below
+
+NURSING CARE PLAN:
+attached pic below
+
+HEALTH EDUCATION:
+attached pic below
+
+NURSE'S RECORD:
+attached pic below

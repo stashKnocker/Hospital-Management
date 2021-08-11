@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+
+  <div class="container mt-4">
+    <h1>List of Survey's.</h1>
+    <hr/>
+    <button type="button" class="btn btn-info btn-lg btn-block"><a href="{% url 'profile_create' %}" style="text-decoration: none; color: #fff;">+ New Survey</a></button>
+    <br />
+
+  {% for pprofile in object_list %}
+  <div class="card">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">owner</th>
+              <th scope="col">Patient Name</th>
+              <th scope="col">Patient Image</th>
+              <th scope="col">Aadhar ID</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Age</th>
+              <th scope="col">Created at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">{{ pprofile.owner }}</td>
+              <td>{{ pprofile.Fullname }}</td>
+              <td><img src="{{ pprofile.dp.url }}" width="48px" height="48px"></td>
+              <td>{{ pprofile.Aadhar_number }}</td>
+              <td>{{ pprofile.Gender }}</td>
+              <td>{{ pprofile.Age}}</td>
+              <td>{{ pprofile.created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+    <div class="card-footer text-center text-muted">
+      <a href="{% url 'profile_detail' pprofile.pk %}">View</a> |
+      <a href="{% url 'profile_edit' pprofile.pk %}">Edit</a> |
+      <a href="{% url 'profile_delete' pprofile.pk %}">Delete</a>
+    </div>  
+    <br />
+      {% empty %}
+      <h6>There are no list yet.</h6>
+      {% endfor %}
+  </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  {% if user.is_patient %}
+  <div class="article-entry">
+    <h2>{{ object.Fullname }}, {{ object.Gender }}, {{ object.Age }} </h2>
+    <p>by {{ object.patient }} | {{ object.date }}</p>
+    <hr>
+    <h4>Case History:</h4>
+    <p>{{ object.case }}</p>
+    <h4>Case Remedy:</h4>
+    <p>{{ object.prescription }}</p>
+  </div>
+
+    <p>Back to <a href="{% url 'prescription_list' %}">All Prescriptions</a>.</p>
+  {% endif %}
+
+  {% if user.is_doctor %}
+
+  <div class="article-entry">
+    <h2>{{ object.Fullname }}, {{ object.Gender }}, {{ object.Age }} </h2>
+    <p>by {{ object.patient }} | {{ object.date }}</p>
+    <hr>
+    <h4>Case History:</h4>
+    <p>{{ object.case }}</p>
+    <h4>Case Remedy:</h4>
+    <p>{{ object.prescription }}</p>
+  </div>
+
+  <p><a href="{% url 'prescription_edit' object.pk %}">Edit</a> |
+  <a href="{% url 'prescription_delete' object.pk %}">Delete</a></p>
+  <p>Back to <a href="{% url 'prescription_list' %}">All Prescriptions</a>.</p>
+
+
+  {% endif %}
+
+</div>
+{% endblock content %}

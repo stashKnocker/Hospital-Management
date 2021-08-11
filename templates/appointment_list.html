@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointments{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Your Appointment's.</h1>
+  <hr/>
+
+  {% if user.is_patient %}
+  <button type="button" class="btn btn-primary btn-lg btn-block"><a href="{% url 'appointment_create' %}" style="text-decoration: none; color: #fff;">+ New Appointment</a></button>
+  <br />
+    {% for appointment in object_list %}
+      <div class="card">
+          <table class="table">
+              <thead>
+                  <tr>
+                  <th scope="col">Appointment Date</th>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Created at</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">{{ appointment.Appointment_date }}</td>
+                    <td>{{ appointment.Doctor }}</td>
+                    <td>{{ appointment.Patient }}</td>
+                    <td>{{ appointment.Age }}</td>
+                    <td>{{ appointment.Gender }}</td>
+                    <td style="color: blue;">{{ appointment.status }}</td>
+                    <td>{{ appointment.created_at }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        <div class="card-footer text-center text-muted">
+          <a href="{% url 'appointment_detail' appointment.pk %}">View</a> |
+          <a href="{% url 'appointment_edit' appointment.pk %}">Edit</a> |
+          <a href="{% url 'appointment_delete' appointment.pk %}">Delete</a>
+        </div>
+      </div>
+      <br />
+    {% empty %}
+    <h6>There are no appointment yet.</h6>
+    {% endfor %}
+  {% endif %}
+
+
+  {% if user.is_doctor %}
+    {% for appointment in object_list %}
+      <div class="card">
+          <table class="table">
+              <thead>
+                  <tr>
+                  <th scope="col">Appointment Date</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Complaint</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Created at</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">{{ appointment.Appointment_date }}</td>
+                    <td>{{ appointment.Patient }}</td>
+                    <td>{{ appointment.complaints|slice:":12" }}</td>
+                    <td>{{ appointment.Age }}</td>
+                    <td>{{ appointment.Gender }}</td>
+                    <td style="color: blue;">{{ appointment.status }}</td>
+                    <td>{{ appointment.created_at }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        <div class="card-footer text-center text-muted">
+          <a href="{% url 'appointment_detail' appointment.pk %}">View</a> |
+          <a href="{% url 'appointment_edit' appointment.pk %}">Edit</a> 
+        </div>
+      </div>
+      <br />
+    {% empty %}
+    <h6>There are no appointment yet.</h6>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock content %}
